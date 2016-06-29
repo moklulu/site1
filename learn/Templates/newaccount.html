@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{# {% load url from future %}  #} 
+{% load bootstrap_toolkit %}
+<html lang="en">  
+<head>  
+    <meta charset="utf-8">  
+    <title>新用户注册</title>  
+    <meta name="description" content="">  
+    <meta name="author" content="Lucas">
+    <script src="static/js/jquery.js"></script>  
+     <link rel="stylesheet" href="/static/twitter-bootstrap-v2/docs/assets/css/bootstrap.css"> 
+    <link rel="stylesheet" href="/static/twitter-bootstrap-v2/docs/assets/css/bootstrap-responsive.css">
+    <script src="/static/twitter-bootstrap-v2/docs/assets/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {  
+            padding-top: 60px;  
+        }  
+    </style>  
+    <!--[if lt IE 9]  
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>  
+    <![endif]-->  
+    {% block extra_head %}{% endblock %}  
+</head>  
+  
+<body>      
+    <div class="well">  
+        <h1>新用户注册</h1>  
+        <p> </p>  
+        <form class="form-horizontal" action="" method="post">  
+            {% csrf_token %}  
+            {{ form|as_bootstrap:"horizontal" }}  
+            <p class="form-actions">  
+                <input type="submit" value="提交" class="btn btn-primary">
+                <a href="/login/"><input type="button" value="返回" class="btn btn-danger"></a>   
+            </p>  
+        </form>  
+    </div>  
+  
+</body>  
+</html> 

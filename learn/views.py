@@ -17,7 +17,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from bootstrap_toolkit.widgets import BootstrapUneditableInput
 from django.contrib.auth.decorators import login_required
 
-from .forms import LoginForm,FindpaswdForm
+from .forms import LoginForm,FindpaswdForm,NewaccountForm
 
 
 def index(request):
@@ -68,5 +68,22 @@ def findpaswd(request):
 
 
 def newaccount(request):
-    return render(request, 'home.html')
+    if request.method == 'GET':
+        form = NewaccountForm()
+        return render_to_response('newaccount.html', RequestContext(request, {'form': form, }))
+    else:
+        form = NewaccountForm(request.POST)
+        if form.is_valid():
+            username = request.POST.get('username', '')
+            setmailaddress = request.POST.get('setmailaddress', '')
+            setpassword = request.POST.get('setpassword', '')
+            user = auth.authenticate(username=username, mailaddress=setmailaddress)
+            if user is not None and user.is_active:
+                auth.login(request, user)
+                return render_to_response('index.html', RequestContext(request))
+            else:
+                return render_to_response('newaccount.html', RequestContext(request, {'form': form, 'setmailaddress_is_wrong': True}))
+        else:
+            return render_to_response('newaccount.html', RequestContext(request, {'form': form, }))  
+
     # Create your views here.

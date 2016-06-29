@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^login/', learn_views.login),
     url(r'^$', learn_views.home),
     url(r'^findpaswd/', learn_views.findpaswd),
-    url(r'^newaccount/', learn_views.findpaswd),
+    url(r'^newaccount/', learn_views.newaccount),
 
 
 ]
