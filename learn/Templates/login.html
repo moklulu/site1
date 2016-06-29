@@ -1,16 +1,16 @@
 <!DOCTYPE html>  
 {# {% load url from future %}  #} 
+{% load bootstrap_toolkit %}
 <html lang="en">  
 <head>  
     <meta charset="utf-8">  
     <title>数据库脚本发布系统</title>  
     <meta name="description" content="">  
-    <meta name="author" content="Lucas">  
-     <link rel="stylesheet" href="/static/css/bootstrap.css"> 
-    <link rel="stylesheet" href="/static/css/bootstrap-responsive.css">
-    <script src="/static/js/bootstrap.min.js"></script>
-    {% bootstrap_stylesheet_tag %}  
-    {% bootstrap_stylesheet_tag "responsive" %}  
+    <meta name="author" content="Lucas">
+    <script src="static/js/jquery.js"></script>  
+     <link rel="stylesheet" href="/static/twitter-bootstrap-v2/docs/assets/css/bootstrap.css"> 
+    <link rel="stylesheet" href="/static/twitter-bootstrap-v2/docs/assets/css/bootstrap-responsive.css">
+    <script src="/static/twitter-bootstrap-v2/docs/assets/js/bootstrap.min.js"></script>
     <style type="text/css">  
         body {  
             padding-top: 60px;  
@@ -19,9 +19,6 @@
     <!--[if lt IE 9]  
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>  
     <![endif]-->  
-
-    <script src="static/js/jquery.js"></script>
-    {% bootstrap_javascript_tag %}  
     {% block extra_head %}{% endblock %}  
 </head>  
   
