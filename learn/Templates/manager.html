@@ -1,0 +1,49 @@
+<!DOCTYPE html>  
+{# {% load url from future %}  #} 
+{% load bootstrap_toolkit %}
+<html lang="en">  
+<head>  
+    <meta charset="utf-8">  
+    <title>Task Manager</title>  
+    <meta name="description" content="">  
+    <meta name="author" content="Lucas">
+    <script src="static/js/jquery.js"></script>  
+     <link rel="stylesheet" href="/static/twitter-bootstrap-v2/docs/assets/css/bootstrap.css"> 
+    <link rel="stylesheet" href="/static/twitter-bootstrap-v2/docs/assets/css/bootstrap-responsive.css">
+    <script src="/static/twitter-bootstrap-v2/docs/assets/js/bootstrap.min.js"></script>
+    {% include "nav.html" %}
+    body{ text-align:center} 
+
+</head> 
+<body>
+
+    <div class="main">  
+        <h1>Task Manager</h1>  
+        <p> </p>
+    </div>
+    {% block table %}
+     <div class = "table">
+     <table class="table table-hover">
+        <tbody>
+            <tr>
+                <td>time</td>
+                <td>task</td>
+                <td><input type="submit" value="完成" class="btn btn-primary">  
+                    <a href="#"><input type="button" value="延期" class="btn btn-success"></a>   
+                    <a href="#"><input type="button" value=" 删除 " class="btn btn-danger"></a>  </td>
+            </tr>
+            <tr>
+                <td>time</td>
+                <td>task</td>
+                <td><input type="submit" value="完成" class="btn btn-primary">  
+                    <a href="#"><input type="button" value="延期" class="btn btn-success"></a>   
+                    <a href="#"><input type="button" value=" 删除 " class="btn btn-danger"></a>  </td>
+            </tr>            
+        </tbody>
+     </table>
+     </div>
+    {% endblock table %}
+    
+  
+</body>  
+</html>  

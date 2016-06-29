@@ -90,4 +90,7 @@ def newaccount(request):
         else:
             return render_to_response('newaccount.html', RequestContext(request, {'form': form, }))
 
+
+def manager(request):
+    return render_to_response('manager.html')
     # Create your views here.
