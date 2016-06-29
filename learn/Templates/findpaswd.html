@@ -1,10 +1,10 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 {# {% load url from future %}  #} 
 {% load bootstrap_toolkit %}
 <html lang="en">  
 <head>  
     <meta charset="utf-8">  
-    <title>数据库脚本发布系统</title>  
+    <title>找回密码</title>  
     <meta name="description" content="">  
     <meta name="author" content="Lucas">
     <script src="static/js/jquery.js"></script>  
@@ -24,22 +24,21 @@
   
 <body>  
   
-    {% if password_is_wrong %}  
+    {% if mailaddress_is_wrong %}  
         <div class="alert alert-error">     
             <button type="button" class="close" data-dismiss="alert">×</button>  
-            <h4>错误!</h4>用户名或密码错误  
+            <h4>错误!</h4>请检查邮箱填写  
         </div>  
     {% endif %}      
     <div class="well">  
-        <h1>Task Manager</h1>  
+        <h1>找回密码</h1>  
         <p> </p>  
         <form class="form-horizontal" action="" method="post">  
             {% csrf_token %}  
             {{ form|as_bootstrap:"horizontal" }}  
             <p class="form-actions">  
-                <input type="submit" value="登录" class="btn btn-primary">  
-                <a href="/findpaswd/"><input type="button" value="忘记密码" class="btn btn-danger"></a>  
-                <a href="/newaccount/"><input type="button" value=" 注册 " class="btn btn-success"></a>  
+                <input type="submit" value="提交" class="btn btn-primary">
+                <a href="/login/"><input type="button" value="返回" class="btn btn-danger"></a>   
             </p>  
         </form>  
     </div>  

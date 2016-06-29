@@ -1,3 +1,7 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, render, get_object_or_404
@@ -13,7 +17,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from bootstrap_toolkit.widgets import BootstrapUneditableInput
 from django.contrib.auth.decorators import login_required
 
-from .forms import LoginForm
+from .forms import LoginForm,FindpaswdForm
 
 
 def index(request):
@@ -42,4 +46,27 @@ def login(request):
         else:
             return render_to_response('login.html', RequestContext(request, {'form': form, }))
 
+
+def findpaswd(request):
+    if request.method == 'GET':
+        form = FindpaswdForm()
+        return render_to_response('findpaswd.html', RequestContext(request, {'form': form, }))
+    else:
+        form = FindpaswdForm(request.POST)
+        if form.is_valid():
+            username = request.POST.get('username', '')
+            mailaddress = request.POST.get('mailaddress', '')
+            newpassword = request.POST.get('newpassword', '')
+            user = auth.authenticate(username=username, mailaddress=mailaddress)
+            if user is not None and user.is_active:
+                auth.login(request, user)
+                return render_to_response('index.html', RequestContext(request))
+            else:
+                return render_to_response('findpaswd.html', RequestContext(request, {'form': form, 'mailaddress_is_wrong': True}))
+        else:
+            return render_to_response('findpaswd.html', RequestContext(request, {'form': form, }))  
+
+
+def newaccount(request):
+    return render(request, 'home.html')
     # Create your views here.

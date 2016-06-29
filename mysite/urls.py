@@ -19,6 +19,10 @@ from learn import views as learn_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', learn_views.login),
-    url(r'^home/', learn_views.home),
+    url(r'^login/', learn_views.login),
+    url(r'^$', learn_views.home),
+    url(r'^findpaswd/', learn_views.findpaswd),
+    url(r'^newaccount/', learn_views.findpaswd),
+
+
 ]
