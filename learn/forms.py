@@ -86,7 +86,7 @@ class  NewaccountForm(forms.Form):
             }
         ),
     )
-    mailaddress = forms.CharField(
+    setmailaddress = forms.CharField(
         required=True,
         label=u"邮箱：",
         error_messages={'required': u'请输入邮箱'},

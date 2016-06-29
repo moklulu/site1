@@ -16,8 +16,9 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 from bootstrap_toolkit.widgets import BootstrapUneditableInput
 from django.contrib.auth.decorators import login_required
+from models import User
 
-from .forms import LoginForm,FindpaswdForm,NewaccountForm
+from .forms import LoginForm, FindpaswdForm, NewaccountForm
 
 
 def index(request):
@@ -37,10 +38,10 @@ def login(request):
         if form.is_valid():
             username = request.POST.get('username', '')
             password = request.POST.get('password', '')
-            user = auth.authenticate(username=username, password=password)
-            if user is not None and user.is_active:
-                auth.login(request, user)
-                return render_to_response('index.html', RequestContext(request))
+            user = User.objects.filter(username=username, password=password)
+            if user: 
+                return HttpResponseRedirect('/admin/')
+                response.set_cookie('username',username,3600)
             else:
                 return render_to_response('login.html', RequestContext(request, {'form': form, 'password_is_wrong': True}))
         else:
@@ -57,14 +58,14 @@ def findpaswd(request):
             username = request.POST.get('username', '')
             mailaddress = request.POST.get('mailaddress', '')
             newpassword = request.POST.get('newpassword', '')
-            user = auth.authenticate(username=username, mailaddress=mailaddress)
-            if user is not None and user.is_active:
-                auth.login(request, user)
-                return render_to_response('index.html', RequestContext(request))
+            user = User.objects.filter(username=username, mailaddress=mailaddress)
+            if user:
+                User.objects.filter(username=username).update(password=newpassword)                
+                return HttpResponseRedirect('/login/')
             else:
                 return render_to_response('findpaswd.html', RequestContext(request, {'form': form, 'mailaddress_is_wrong': True}))
         else:
-            return render_to_response('findpaswd.html', RequestContext(request, {'form': form, }))  
+            return render_to_response('findpaswd.html', RequestContext(request, {'form': form, }))
 
 
 def newaccount(request):
@@ -77,13 +78,16 @@ def newaccount(request):
             username = request.POST.get('username', '')
             setmailaddress = request.POST.get('setmailaddress', '')
             setpassword = request.POST.get('setpassword', '')
-            user = auth.authenticate(username=username, mailaddress=setmailaddress)
-            if user is not None and user.is_active:
-                auth.login(request, user)
-                return render_to_response('index.html', RequestContext(request))
-            else:
-                return render_to_response('newaccount.html', RequestContext(request, {'form': form, 'setmailaddress_is_wrong': True}))
+            User.objects.create(username=username,mailaddress=setmailaddress,password=setpassword)
+            return HttpResponse('success')
+        #     user = auth.authenticate(
+        #         username=username, mailaddress=setmailaddress)
+        #     if user is not None and user.is_active:
+        #         auth.login(request, user)
+        #         return render_to_response('index.html', RequestContext(request))
+        #     else:
+        #         return render_to_response('newaccount.html', RequestContext(request, {'form': form, 'setmailaddress_is_wrong': True}))
         else:
-            return render_to_response('newaccount.html', RequestContext(request, {'form': form, }))  
+            return render_to_response('newaccount.html', RequestContext(request, {'form': form, }))
 
     # Create your views here.
