@@ -90,7 +90,10 @@ def newaccount(request):
         else:
             return render_to_response('newaccount.html', RequestContext(request, {'form': form, }))
 
+<<<<<<< HEAD
 
 def manager(request):
     return render_to_response('webpage.html')
+=======
+>>>>>>> parent of 09e0ee9... last update
     # Create your views here.
