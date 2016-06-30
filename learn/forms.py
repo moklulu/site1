@@ -9,7 +9,7 @@ class LoginForm(forms.Form):
     username = forms.CharField(
         required=True,
         label=u"username",
-        error_messages={'required': 'username'},
+        error_messages = {'required': 'input username'},
         widget=forms.TextInput(
             attrs={
                 'placeholder': u"username",
@@ -19,7 +19,7 @@ class LoginForm(forms.Form):
     password = forms.CharField(
         required=True,
         label=u"password",
-        error_messages={'required': u'password'},
+        error_messages={'required': u'input password'},
         widget=forms.PasswordInput(
             attrs={
                 'placeholder': u"password",
@@ -29,6 +29,6 @@ class LoginForm(forms.Form):
 
     def clean(self):
         if not self.is_valid():
-            raise forms.ValidationError(u"must")
+            raise forms.ValidationError(u"password and username is required")
         else:
             cleaned_data = super(LoginForm, self).clean()
