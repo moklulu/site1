@@ -23,14 +23,14 @@
 </head>  
   
 <body>  
-  
+ <div class="container-fluid" id="XS"> 
     {% if password_is_wrong %}  
         <div class="alert alert-error">     
             <button type="button" class="close" data-dismiss="alert">×</button>  
             <h4>错误!</h4>用户名或密码错误  
         </div>  
     {% endif %}      
-    <div class="well">  
+    <div class="well" id="XS">  
         <h1>Task Manager</h1>  
         <p> </p>  
         <form class="form-horizontal" action="" method="post">  
@@ -43,6 +43,6 @@
             </p>  
         </form>  
     </div>  
-  
+ </div>
 </body>  
 </html> 

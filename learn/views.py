@@ -40,7 +40,7 @@ def login(request):
             password = request.POST.get('password', '')
             user = User.objects.filter(username=username, password=password)
             if user: 
-                return HttpResponseRedirect('/admin/')
+                return HttpResponseRedirect('/index/')
                 response.set_cookie('username',username,3600)
             else:
                 return render_to_response('login.html', RequestContext(request, {'form': form, 'password_is_wrong': True}))
@@ -92,5 +92,9 @@ def newaccount(request):
 
 
 def manager(request):
-    return render_to_response('webpage.html')
+    return render_to_response('manager.html')
+
+
+def base(request):
+    return render_to_response('base.html')
     # Create your views here.

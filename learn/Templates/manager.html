@@ -13,15 +13,26 @@
     <link href="/static/twitter-bootstrap-v2/docs/assets/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="/static/twitter-bootstrap-v2/docs/assets/css/bootstrap-responsive.css">
     <script  src="/static/twitter-bootstrap-v2/docs/assets/js/bootstrap.min.js"></script>
-
+    <style type="text/css">  
+        body {  
+            padding-top: 60px;  
+        }  
+    </style>   
 </head> 
 <body>
-
+<div class="container-fluid" id="XS">
+<div class="row-fluid">
+<div class="span12">
     <div class="main">  
         <h1>Task Manager</h1>  
         <p> </p>
+        <h2>
+                    任务管理系统
+                </h2>
+                <p class="lead">
+                    this is test descirbe
+                </p>
     </div>
-    {% block table %}
      <div class = "table">
      <table class="table table-hover">
         <tbody>
@@ -30,24 +41,9 @@
                 <td>task</td>
                 <td><input type="submit" value="完成" class="btn btn-primary"> 
                     <a href="#"><input type="button" value="延期" class="btn btn-success"></a>   
-                    <a href="#"><input type="button" value=" 删除 " class="btn btn-danger"></a>  </td>
-            </tr>
-            <tr>
-                <td>time</td>
-                <td>task</td>
-                <td><input type="submit" value="完成" class="btn btn-primary">  
-                    <a href="#"><input type="button" value="延期" class="btn btn-success"></a>   
-                    <a href="#"><input type="button" value=" 删除 " class="btn btn-danger"></a>  </td>
-            </tr>            
-        </tbody>
-     </table>
-     </div>
-    {% endblock table %}
-    <div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span12">
-             <a id="modal-688140" href="#modal-container-688140" role="button" class="btn" data-toggle="modal">触发遮罩窗体</a>
-            <div id="modal-container-688140" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <a href="#"><input type="button" value=" 删除 " class="btn btn-danger"></a>
+                    <a id="modal-803260" href="#modal-container-803260" role="button" class="btn" data-toggle="modal">触发遮罩窗体</a>
+            <div id="modal-container-803260" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-header">
                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h3 id="myModalLabel">
@@ -61,11 +57,21 @@
                 </div>
                 <div class="modal-footer">
                      <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button> <button class="btn btn-primary">保存设置</button>
-                </div>
-            </div>
-        </div>
-    </div>
+                </div>  </td>
+            </tr>
+            <tr>
+                <td>time</td>
+                <td>task</td>
+                <td><input type="submit" value="完成" class="btn btn-primary">  
+                    <a href="#"><input type="button" value="延期" class="btn btn-success"></a>   
+                    <a href="#"><input type="button" value=" 删除 " class="btn btn-danger"></a>  </td>
+            </tr>            
+        </tbody>
+     </table>
+     </div>
+
 </div>
-  
+</div>
+</div>  
 </body>  
 </html>  
