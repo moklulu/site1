@@ -7,12 +7,12 @@
     <title>Task Manager</title>  
     <meta name="description" content="">  
     <meta name="author" content="Lucas">
-    <script src="static/js/jquery.js"></script>  
-     <link rel="stylesheet" href="/static/twitter-bootstrap-v2/docs/assets/css/bootstrap.css"> 
+    <script type="text/javascript" src="static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/twitter-bootstrap-v2/docs/assets/js/jquery-ui.js"></script>  
+    <link rel="stylesheet" href="/static/twitter-bootstrap-v2/docs/assets/css/bootstrap.css"> 
+    <link href="/static/twitter-bootstrap-v2/docs/assets/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="/static/twitter-bootstrap-v2/docs/assets/css/bootstrap-responsive.css">
-    <script src="/static/twitter-bootstrap-v2/docs/assets/js/bootstrap.min.js"></script>
-    {% include "nav.html" %}
-    body{ text-align:center} 
+    <script  src="/static/twitter-bootstrap-v2/docs/assets/js/bootstrap.min.js"></script>
 
 </head> 
 <body>
@@ -28,7 +28,7 @@
             <tr>
                 <td>time</td>
                 <td>task</td>
-                <td><input type="submit" value="完成" class="btn btn-primary">  
+                <td><input type="submit" value="完成" class="btn btn-primary"> 
                     <a href="#"><input type="button" value="延期" class="btn btn-success"></a>   
                     <a href="#"><input type="button" value=" 删除 " class="btn btn-danger"></a>  </td>
             </tr>
@@ -43,7 +43,29 @@
      </table>
      </div>
     {% endblock table %}
-    
+    <div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+             <a id="modal-688140" href="#modal-container-688140" role="button" class="btn" data-toggle="modal">触发遮罩窗体</a>
+            <div id="modal-container-688140" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">
+                        标题栏
+                    </h3>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        显示信息
+                    </p>
+                </div>
+                <div class="modal-footer">
+                     <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button> <button class="btn btn-primary">保存设置</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
   
 </body>  
 </html>  

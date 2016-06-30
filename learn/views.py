@@ -92,5 +92,5 @@ def newaccount(request):
 
 
 def manager(request):
-    return render_to_response('manager.html')
+    return render_to_response('webpage.html')
     # Create your views here.
