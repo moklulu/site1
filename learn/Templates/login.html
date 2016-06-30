@@ -1,16 +1,18 @@
 <!DOCTYPE html>  
 {# {% load url from future %}  #} 
+{% load bootstrap_toolkit %}
 <html lang="en">  
 <head>  
     <meta charset="utf-8">  
     <title>数据库脚本发布系统</title>  
     <meta name="description" content="">  
-    <meta name="author" content="Lucas">  
-     <link rel="stylesheet" href="/static/css/bootstrap.css"> 
-    <link rel="stylesheet" href="/static/css/bootstrap-responsive.css">
-    <script src="/static/js/bootstrap.min.js"></script>
-    {% bootstrap_stylesheet_tag %}  
-    {% bootstrap_stylesheet_tag "responsive" %}  
+    <meta name="author" content="Lucas">
+    <script src="static/twitter-bootstrap-v2/docs/assets/js/jquery.min.js"></script>
+    <script src="/static/twitter-bootstrap-v2/docs/assets/js/bootstrap.min.js"></script>  
+    <link rel="stylesheet" href="/static/twitter-bootstrap-v2/docs/assets/css/bootstrap.css"> 
+    <link rel="stylesheet" href="/static/twitter-bootstrap-v2/docs/assets/css/bootstrap-responsive.css">
+    <script src="/static/twitter-bootstrap-v2/docs/assets/js/bootstrap.min.js"></script>
+    
     <style type="text/css">  
         body {  
             padding-top: 60px;  
@@ -20,15 +22,14 @@
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>  
     <![endif]-->  
 
-    <script src="static/js/jquery.js"></script>
-    {% bootstrap_javascript_tag %}  
-    {% block extra_head %}{% endblock %}  
+    <script src="static/js/jquery.min.js"></script>
+    
 </head>  
   
 <body>  
   
     {% if password_is_wrong %}  
-        <div class="alert alert-error">     
+        <div class="alert alert-error">  
             <button type="button" class="close" data-dismiss="alert">×</button>  
             <h4>错误!</h4>用户名或密码错误  
         </div>  
